@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine</title>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+
+    <style>
+        #btn_yes {
+            width: 70px;
+            margin: 10px 10px;
+            font-size: 15px;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+        }
+
+        #btn_no {
+            width: 70px;
+            margin: 10px 10px;
+            font-size: 15px;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container text-center mt-5">
+
+        <h1 class="val_text" id="val_text">Be mine this Valentine’s Day?😍??</h1>
+        <div id="button_id">
+            <div>
+                <button type="button" class="btn" id="btn_yes" data-mdb-ripple-init>YES</button>
+            </div>
+            <div>
+                <button type="button" class="btn" id="btn_no" data-mdb-ripple-init>NO</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        let btn_yes = document.getElementById("btn_yes");
+        let val_text = document.getElementById("val_text");
+        let button_id = document.getElementById("button_id");
+        let buttons = document.querySelectorAll(".btn");
+        let btn_size = 100;
+        let btn_font_size = 15;
+        const val_text_array = ["Roses are red, violets are blue, I think I have a crush, do you too?",
+            "V-Day? Try U + Me Day!",
+            "Would you grab my arm? I want to tell my friends I’ve been touched by an angel.",
+            "Tonight’s menu: Chocolate, candy hearts, and you.",
+            "Once you go cupid, the rest are just stupid!",
+            "I LOST MY TEDDY BEAR, CAN I CUDDLE WITH YOU?",
+            "Are you a charger? Because I'm dying without you.",
+            "Please!!😭"
+        ];
+        let val_text_array_size = 0;
+        const write = (ab) => {
+            if (ab === "btn_no" && val_text_array_size < val_text_array.length) {
+                val_text.innerHTML = `${val_text_array[val_text_array_size]}`;
+                btn_size = btn_size + 20;
+                btn_font_size = btn_font_size + 5;
+                val_text_array_size = val_text_array_size + 1
+                btn_yes.style.width = `${btn_size}px`
+                btn_yes.style.fontSize = `${btn_font_size}px`
+                console.log(btn_size)
+                console.log(val_text_array_size)
+            }
+            else if (val_text_array_size === val_text_array.length) {
+                val_text.innerHTML = "GO TO HELL😤😤";
+                val_text.style.color = "red";
+                val_text.style.fontSize = '70px'
+                button_id.style.display = 'none'
+            }
+            else {
+                val_text.innerHTML = "HAPPY VALENTINE'S DAY 🥰😘";
+                val_text.style.color = 'green';
+                val_text.style.fontSize = '55px'
+                button_id.style.display = 'none'
+            }
+        }
+        buttons.forEach((items) => {
+            items.addEventListener("click", () => {
+                write(event.target.id)
+            });
+        })
+
+
+
+    </script>
+
+
+
+    <!-- MDB -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+
+</body>
+
+</html>
